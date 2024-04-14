@@ -3,6 +3,8 @@
 ## Description
 My Favorite Movies is a web application where you can create and manage your own list of favorite movies. You can add, remove, and mark movies as favorites, making it easy to keep track of your cinematic preferences.
 
+![My Favorite Movies](myfavoritemovies.png)
+
 ## Features
 - Add movies to your list by entering their titles.
 - Remove movies from your list.
