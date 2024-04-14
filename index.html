@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desafio 03 - Renderizado de Lista</title>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/nico.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>My Favorite Movies</h1>
+    </header>
+    <main id="app">
+      <div>
+        <form v-on:submit.prevent="agregarPelicula">
+          <label for="pelicula">Movie Name</label>
+          <input v-model="pelicula" type="text" id="pelicula" />
+          <button type="submit">Add</button>
+        </form>
+      </div>
+      <div>
+        <h2>Movies - <span>{{peliculas.length}}</span></h2>
+      </div>
+      <div>
+        <ul>
+          <!-- Array Peliculas -->
+          <li v-for="(task, index) in peliculas">
+            <div>
+              <!-- Favorito -->
+              <button v-if="task.favorito" v-on:click="favoritoPelicula(task)">
+                <i class="fas fa-star"></i>
+              </button>
+              <!-- No Favorito -->
+              <button v-else v-on:click="favoritoPelicula(task)">
+                <i class="far fa-star"></i>
+              </button>
+              <!-- Titulo de la Pelicula -->
+              <span class="nombrePeli">{{task.titulo}}</span>
+            </div>
+            <!-- Borrar pelicula -->
+            <div>
+              <a v-on:click="eliminarPelicula(index)"><i class="fas fa-times"></i></a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </main>
+  </body>
+</html>
